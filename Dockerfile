@@ -8,7 +8,7 @@ RUN apt-get update \
     && rm -rf /var/lib/apt/lists/*
 
 RUN curl -fL \
-    https://github.com/ronilan/calculator/releases/latest/download/incredible_calculator-terminal-linux.zip \
+    https://github.com/ronilan/incredible-calculator/releases/download/latest/incredible_calculator-terminal-linux.zip \
     -o /tmp/incredible_calculator.zip \
     && unzip -o /tmp/incredible_calculator.zip -d /usr/local/bin \
     && rm /tmp/incredible_calculator.zip \

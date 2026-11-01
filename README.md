@@ -39,10 +39,13 @@ Uninstall the same way with `uninstall.sh` / `uninstall.ps1`.
 To try the Linux terminal version, fetch the repository's `Dockerfile` and build the image (it downloads the latest Linux release, so no source checkout is needed):
 
 ```bash
+mkdir docker-build && cd docker-build
 curl -fsSL https://raw.githubusercontent.com/ronilan/incredible-calculator/main/Dockerfile -o Dockerfile
 docker build -t incredible_calculator .
 docker run --rm -it incredible_calculator
 ```
+
+Run the commands in an **empty folder** (not your home directory) so Docker's build context doesn't include large/system folders like `~/.Trash`.
 
 Type `calculator` in the container shell to launch.
 
