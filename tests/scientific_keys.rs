@@ -152,6 +152,54 @@ fn ee_key_enters_the_exponent_marker() {
 }
 
 #[test]
+fn shifted_symbol_keys_match_their_bindings() {
+    let screen = screen();
+    let mut state = State::new();
+
+    // Terminals report `*`, `+`, `(` and `)` with a synthesised Shift.
+    press_with(&screen, &mut state, "(", Key::Char('('), &[KeyMod::Shift]);
+    type_digits(&screen, &mut state, "2");
+    press_with(&screen, &mut state, "+", Key::Char('+'), &[KeyMod::Shift]);
+    type_digits(&screen, &mut state, "3");
+    press_with(&screen, &mut state, ")", Key::Char(')'), &[KeyMod::Shift]);
+    evaluate(&screen, &mut state);
+    assert_eq!(state.display, "5");
+
+    let mut state = State::new();
+    type_digits(&screen, &mut state, "50");
+    press_with(&screen, &mut state, "%", Key::Char('%'), &[KeyMod::Shift]);
+    evaluate(&screen, &mut state);
+    assert_eq!(state.display, "0.5");
+}
+
+#[test]
+fn shifted_uppercase_key_matches_ee() {
+    let screen = screen();
+    let mut state = State::new();
+
+    type_digits(&screen, &mut state, "2");
+    press_with(&screen, &mut state, "EE", Key::Char('E'), &[KeyMod::Shift]);
+    type_digits(&screen, &mut state, "3");
+    evaluate(&screen, &mut state);
+
+    assert_eq!(state.display, "2000");
+}
+
+#[test]
+fn modifier_bindings_still_require_their_modifier() {
+    let screen = screen();
+    let mut state = State::new();
+
+    type_digits(&screen, &mut state, "12");
+
+    press_with(&screen, &mut state, "C", Key::Delete, &[]);
+    assert_eq!(state.expression, "12");
+
+    press_with(&screen, &mut state, "C", Key::Delete, &[KeyMod::Ctrl]);
+    assert_eq!(state.expression, "0");
+}
+
+#[test]
 fn constant_keys_insert_pi_and_e() {
     let screen = screen();
 

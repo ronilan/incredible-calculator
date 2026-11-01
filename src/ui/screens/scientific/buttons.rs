@@ -3,7 +3,6 @@ use incredible_elements::{FancyButton, FancyButtonGroup};
 use incredible_helpers_layout::Direction;
 
 use crate::state::State;
-use crate::ui::key::pressed;
 
 static X: isize = 0;
 static Y: isize = 5;
@@ -147,7 +146,7 @@ where
     button.on_key(move |el, state: &mut State, event| {
         let stored = el.internal_state.key_combination.borrow().clone();
         if let Some(stored) = stored {
-            if pressed(&stored, event) {
+            if stored.matches(event) {
                 action(state);
             }
         }
@@ -182,7 +181,7 @@ fn add_angle_buttons(elements: &mut Elements<State>, x: isize, y: isize) {
             }
         })
         .on_key(|_el, state, event| {
-            if pressed(&KeyCombination::new(Key::Char('d'), &[]), event) {
+            if KeyCombination::new(Key::Char('d'), &[]).matches(event) {
                 crate::logic_scientific::set_angle_mode(state, !state.is_radian);
             }
         })
@@ -274,7 +273,7 @@ fn add_num_button(elements: &mut Elements<State>, x: isize, y: isize, text: &str
         .on_key(|el, state: &mut State, event| {
             let stored = el.internal_state.key_combination.borrow().clone();
             if let Some(stored) = stored {
-                if pressed(&stored, event) {
+                if stored.matches(event) {
                     if let Key::Char(c) = stored.key {
                         crate::logic_scientific::handle_number(state, c);
                     }
@@ -307,7 +306,7 @@ fn add_decimal_button(elements: &mut Elements<State>, x: isize, y: isize) {
         .on_key(|el, state: &mut State, event| {
             let stored = el.internal_state.key_combination.borrow().clone();
             if let Some(stored) = stored {
-                if pressed(&stored, event) {
+                if stored.matches(event) {
                     crate::logic_scientific::handle_decimal(state);
                 }
             }
@@ -365,7 +364,7 @@ fn add_op_button(elements: &mut Elements<State>, x: isize, y: isize, text: &str)
             let stored = el.internal_state.key_combination.borrow().clone();
             let mut matched = false;
             if let Some(stored) = stored {
-                if pressed(&stored, event) {
+                if stored.matches(event) {
                     matched = true;
                 }
             }
@@ -500,7 +499,7 @@ fn add_clear_button(elements: &mut Elements<State>, x: isize, y: isize, text: &s
         .on_key(move |el, state: &mut State, event| {
             let stored = el.internal_state.key_combination.borrow().clone();
             if let Some(stored) = stored {
-                if pressed(&stored, event) {
+                if stored.matches(event) {
                     if all {
                         crate::logic_scientific::handle_clear_all(state);
                     } else {
@@ -534,7 +533,7 @@ fn add_delete_button(elements: &mut Elements<State>, x: isize, y: isize) {
         .on_key(|el, state: &mut State, event| {
             let stored = el.internal_state.key_combination.borrow().clone();
             if let Some(stored) = stored {
-                if pressed(&stored, event) {
+                if stored.matches(event) {
                     crate::logic_scientific::handle_delete(state);
                 }
             }
@@ -560,7 +559,7 @@ fn add_sign_button(elements: &mut Elements<State>, x: isize, y: isize) {
         .on_key(|el, state: &mut State, event| {
             let stored = el.internal_state.key_combination.borrow().clone();
             if let Some(stored) = stored {
-                if pressed(&stored, event) {
+                if stored.matches(event) {
                     crate::logic_scientific::input_sign(state);
                 }
             }
@@ -586,7 +585,7 @@ fn add_percent_button(elements: &mut Elements<State>, x: isize, y: isize) {
         .on_key(|el, state: &mut State, event| {
             let stored = el.internal_state.key_combination.borrow().clone();
             if let Some(stored) = stored {
-                if pressed(&stored, event) {
+                if stored.matches(event) {
                     crate::logic_scientific::input_percent(state);
                 }
             }
@@ -612,7 +611,7 @@ fn add_rand_button(elements: &mut Elements<State>, x: isize, y: isize) {
         .on_key(|el, state: &mut State, event| {
             let stored = el.internal_state.key_combination.borrow().clone();
             if let Some(stored) = stored {
-                if pressed(&stored, event) {
+                if stored.matches(event) {
                     crate::logic_scientific::input_rand(state);
                 }
             }
@@ -639,7 +638,7 @@ fn add_equals_button(elements: &mut Elements<State>, x: isize, y: isize) {
             let stored = el.internal_state.key_combination.borrow().clone();
             let mut matched = false;
             if let Some(stored) = stored {
-                if pressed(&stored, event) {
+                if stored.matches(event) {
                     matched = true;
                 }
             }

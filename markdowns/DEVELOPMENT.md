@@ -67,7 +67,6 @@ App Code:
 src/
 ├── ui/
 │   ├── app.rs          # Cross-platform application code, wires the two screens.
-│   ├── key.rs          # Key-combination matching.
 │   └── screens/
 │       ├── basic/      # Basic calculator screen: display, keypad, title.
 │       └── scientific/ # Scientific screen: display, keypad, title.

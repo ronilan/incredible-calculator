@@ -3,7 +3,6 @@ use incredible_elements::FancyButton;
 
 use crate::logic::*;
 use crate::state::State;
-use crate::ui::key::pressed;
 
 static X: isize = 21;
 static Y: isize = 4;
@@ -38,7 +37,7 @@ pub fn build<'a>() -> Elements<State> {
             .on_key(|el, state: &mut State, event| {
                 let stored = el.internal_state.key_combination.borrow().clone();
                 if let Some(stored) = stored {
-                    if pressed(&stored, event) {
+                    if stored.matches(event) {
                         if let Key::Char(c) = stored.key {
                             handle_operator(state, c);
                         }
@@ -73,7 +72,7 @@ pub fn build<'a>() -> Elements<State> {
         let stored = el.internal_state.key_combination.borrow().clone();
         let mut matched = false;
         if let Some(stored) = stored {
-            if pressed(&stored, event) {
+            if stored.matches(event) {
                 matched = true;
             }
         }
