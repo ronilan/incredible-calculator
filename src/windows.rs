@@ -1,0 +1,31 @@
+#![cfg_attr(not(debug_assertions), windows_subsystem = "windows")]
+
+#[cfg(all(target_os = "windows", feature = "windows-native"))]
+mod logic;
+#[cfg(all(target_os = "windows", feature = "windows-native"))]
+mod logic_scientific;
+#[cfg(all(target_os = "windows", feature = "windows-native"))]
+mod platform;
+#[cfg(all(target_os = "windows", feature = "windows-native"))]
+mod runtime;
+#[cfg(all(target_os = "windows", feature = "windows-native"))]
+mod settings;
+#[cfg(all(target_os = "windows", feature = "windows-native"))]
+mod state;
+#[cfg(all(target_os = "windows", feature = "windows-native"))]
+mod themes;
+#[cfg(all(target_os = "windows", feature = "windows-native"))]
+mod ui;
+
+#[cfg(all(target_os = "windows", feature = "windows-native"))]
+fn main() {
+    platform::init();
+    incredible_window_windows::run_app(runtime::run);
+}
+
+#[cfg(any(not(target_os = "windows"), not(feature = "windows-native")))]
+fn main() {
+    eprintln!(
+        "This binary is only available for Windows targets with the 'windows-native' feature enabled."
+    );
+}
