@@ -1,5 +1,7 @@
-use incredible_calculator::logic::{handle_equals, handle_number as basic_number, handle_operator};
-use incredible_calculator::logic_scientific::{
+use incredible_calculator::logic::basic::{
+    handle_equals, handle_number as basic_number, handle_operator,
+};
+use incredible_calculator::logic::scientific::{
     calculate, handle_number as sci_number, input_func, input_op,
 };
 use incredible_calculator::state::{CalcMode, State};

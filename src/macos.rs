@@ -1,8 +1,6 @@
 #[cfg(all(target_os = "macos", feature = "macos-native"))]
 mod logic;
 #[cfg(all(target_os = "macos", feature = "macos-native"))]
-mod logic_scientific;
-#[cfg(all(target_os = "macos", feature = "macos-native"))]
 mod platform;
 #[cfg(all(target_os = "macos", feature = "macos-native"))]
 mod runtime;
@@ -10,8 +8,6 @@ mod runtime;
 mod settings;
 #[cfg(all(target_os = "macos", feature = "macos-native"))]
 mod state;
-#[cfg(all(target_os = "macos", feature = "macos-native"))]
-mod themes;
 #[cfg(all(target_os = "macos", feature = "macos-native"))]
 mod ui;
 

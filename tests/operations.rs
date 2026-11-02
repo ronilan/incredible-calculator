@@ -1,8 +1,8 @@
-use incredible_calculator::logic::{
+use incredible_calculator::logic::basic::{
     handle_dot, handle_equals, handle_number as basic_number, handle_operator,
     handle_plus_minus as basic_sign,
 };
-use incredible_calculator::logic_scientific::{
+use incredible_calculator::logic::scientific::{
     calculate, handle_number as sci_number, input_op, input_sign as sci_sign,
 };
 use incredible_calculator::state::State;

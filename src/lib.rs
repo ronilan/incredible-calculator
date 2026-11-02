@@ -1,8 +1,6 @@
 pub mod logic;
-pub mod logic_scientific;
 pub mod settings;
 pub mod state;
-pub mod themes;
 pub mod ui;
 
 #[cfg(target_arch = "wasm32")]

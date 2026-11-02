@@ -67,15 +67,15 @@ App Code:
 src/
 ├── ui/
 │   ├── app.rs          # Cross-platform application code, wires the two screens.
+│   ├── themes.rs       # Colour themes.
 │   └── screens/
 │       ├── basic/      # Basic calculator screen: display, keypad, title.
 │       └── scientific/ # Scientific screen: display, keypad, title.
-├── logic.rs            # Basic calculator state machine.
-├── logic_scientific.rs # Scientific expression parser and evaluator.
+├── logic/
+│   ├── basic.rs        # Basic calculator state machine.
+│   └── scientific.rs   # Scientific expression parser and evaluator.
 ├── state.rs            # Shared application state and mode switching.
-├── settings.rs         # Per-user preferences file (theme, mode, angle).
-├── themes.rs           # Colour themes.
-└── shared_app.rs       # App options shared by the entry points.
+└── settings.rs         # Per-user preferences file (theme, mode, angle).
 ```
 
 ```

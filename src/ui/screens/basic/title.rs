@@ -2,7 +2,7 @@ use incredible::*;
 use incredible_elements::{Rectangle, Text};
 
 use crate::state::{CalcMode, State};
-use crate::themes;
+use crate::ui::themes;
 
 static X: isize = 0;
 static Y: isize = 0;

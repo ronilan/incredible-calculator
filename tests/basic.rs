@@ -1,4 +1,4 @@
-use incredible_calculator::logic::{
+use incredible_calculator::logic::basic::{
     handle_clear, handle_dot, handle_equals, handle_number, handle_operator, handle_percentage,
     handle_plus_minus,
 };

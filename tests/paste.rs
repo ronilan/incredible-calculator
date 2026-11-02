@@ -1,4 +1,4 @@
-use incredible_calculator::logic_scientific::{calculate, paste_expression};
+use incredible_calculator::logic::scientific::{calculate, paste_expression};
 use incredible_calculator::state::State;
 
 fn pasted(text: &str) -> State {

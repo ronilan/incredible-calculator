@@ -3,7 +3,7 @@ use incredible_elements::Rectangle;
 use incredible_helpers_layout::*;
 
 use crate::state::{CalcMode, State};
-use crate::themes::*;
+use crate::ui::themes::*;
 
 use super::calculator;
 
@@ -32,7 +32,7 @@ pub fn build() -> Rectangle<State> {
                 // The screen stays in the tree while Basic is showing, so the
                 // mode check is what keeps pasting Scientific-only.
                 if matches!(state.calc_mode, CalcMode::Scientific) {
-                    crate::logic_scientific::paste_expression(state, text);
+                    crate::logic::scientific::paste_expression(state, text);
                 }
             }
             _ => {}

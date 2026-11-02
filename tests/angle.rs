@@ -1,4 +1,4 @@
-use incredible_calculator::logic_scientific::{
+use incredible_calculator::logic::scientific::{
     calculate, handle_number, input_func, set_angle_mode,
 };
 use incredible_calculator::state::State;

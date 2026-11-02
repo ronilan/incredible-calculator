@@ -3,8 +3,6 @@
 #[cfg(all(target_os = "windows", feature = "windows-native"))]
 mod logic;
 #[cfg(all(target_os = "windows", feature = "windows-native"))]
-mod logic_scientific;
-#[cfg(all(target_os = "windows", feature = "windows-native"))]
 mod platform;
 #[cfg(all(target_os = "windows", feature = "windows-native"))]
 mod runtime;
@@ -12,8 +10,6 @@ mod runtime;
 mod settings;
 #[cfg(all(target_os = "windows", feature = "windows-native"))]
 mod state;
-#[cfg(all(target_os = "windows", feature = "windows-native"))]
-mod themes;
 #[cfg(all(target_os = "windows", feature = "windows-native"))]
 mod ui;
 

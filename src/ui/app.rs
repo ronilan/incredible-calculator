@@ -2,8 +2,8 @@ use incredible::*;
 use incredible_elements::App;
 
 use crate::state::{CalcMode, State};
-use crate::themes::apple_theme;
 use crate::ui::screens;
+use crate::ui::themes::apple_theme;
 
 /// The native window size that exactly fits the active calculator.
 pub fn window_size(mode: CalcMode) -> (usize, usize) {

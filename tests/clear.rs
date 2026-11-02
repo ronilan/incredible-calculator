@@ -1,4 +1,4 @@
-use incredible_calculator::logic_scientific::{
+use incredible_calculator::logic::scientific::{
     calculate, handle_clear_all, handle_clear_entry, handle_delete, handle_number, input_ans,
     input_func, input_op, input_paren,
 };

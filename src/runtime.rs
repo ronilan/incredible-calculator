@@ -1,8 +1,8 @@
 use crate::platform;
 use crate::settings;
 use crate::state::State;
-use crate::themes;
 use crate::ui::app;
+use crate::ui::themes;
 
 pub(crate) fn run() -> incredible::tui::DeferredValue<State> {
     platform::init();
