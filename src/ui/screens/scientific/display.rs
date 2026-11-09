@@ -17,7 +17,7 @@ static FRAME_HEIGHT: usize = 4;
 static DISPLAY_ROWS: usize = 3;
 static DISPLAY_COLUMNS: usize = FRAME_WIDTH - 2;
 
-pub fn build<'a>() -> Rectangle<State> {
+pub fn build() -> Rectangle<State> {
     let display = Rectangle::new();
     display
         .x(X)

@@ -909,7 +909,7 @@ fn find_last_call(haystack: &str) -> Option<(usize, &'static str)> {
             if tail_of_a_name {
                 continue;
             }
-            if best.map_or(true, |(best_start, _)| start > best_start) {
+            if best.is_none_or(|(best_start, _)| start > best_start) {
                 best = Some((start, name));
             }
         }
@@ -1113,7 +1113,7 @@ fn format_number(n: f64) -> String {
     if trimmed.len() > MAX_DISPLAY_CHARS {
         return format!("{:.6e}", n).replace('e', "E");
     }
-    if trimmed == "-0" || trimmed == "" {
+    if trimmed == "-0" || trimmed.is_empty() {
         "0".into()
     } else {
         trimmed

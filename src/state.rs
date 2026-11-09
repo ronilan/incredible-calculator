@@ -36,6 +36,12 @@ pub struct State {
     pub should_reset: bool,
 }
 
+impl Default for State {
+    fn default() -> Self {
+        Self::new()
+    }
+}
+
 impl State {
     /// Switches to the other calculator and starts it from a clean sheet.
     /// Any expression in progress, the history, and the stored answer are

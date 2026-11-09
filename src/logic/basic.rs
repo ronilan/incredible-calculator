@@ -275,7 +275,7 @@ fn format_number(n: f64) -> String {
         return format!("{:.6e}", n);
     }
 
-    if trimmed == "-0" || trimmed == "" {
+    if trimmed == "-0" || trimmed.is_empty() {
         "0".into()
     } else {
         trimmed

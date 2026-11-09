@@ -18,7 +18,7 @@ static NAME_X: isize = 3;
 // Distance from the title's right edge for the palette icon.
 static SETTING_BUTTON_FROM_RIGHT: isize = 3;
 
-pub fn build<'a>() -> Rectangle<State> {
+pub fn build() -> Rectangle<State> {
     // Title
     let title = Rectangle::new();
     title

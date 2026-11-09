@@ -9,7 +9,7 @@ static Y: isize = 1;
 static FRAME_WIDTH: usize = 28;
 static FRAME_HEIGHT: usize = 3;
 
-pub(crate) fn build<'a>() -> Rectangle<State> {
+pub(crate) fn build() -> Rectangle<State> {
     let display = Rectangle::new();
     display
         .x(X)
